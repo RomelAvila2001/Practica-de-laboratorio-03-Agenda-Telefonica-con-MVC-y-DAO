@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author NANCY
  */
-public interface IClienteDAO {
+public interface IUsuarioDAO {
     public void create(Usuario usuario);
     public Usuario read(int id);
     public void update(Usuario usuario);
