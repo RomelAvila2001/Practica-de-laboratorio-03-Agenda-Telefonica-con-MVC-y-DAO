@@ -1,0 +1,71 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ec.edu.ups.dao;
+
+import ec.edu.ups.idao.IUsuarioDAO;
+import ec.edu.ups.modelo.Usuario;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+/**
+ *
+ * @author NANCY
+ */
+public class UsuarioDAO implements IUsuarioDAO {
+    
+    private List<Usuario> listaUsuario;
+
+    public UsuarioDAO() {
+        listaUsuario = new ArrayList<>();
+    }
+    
+    
+    @Override
+    public void create(Usuario usuario) {
+       listaUsuario.add(usuario);
+    }
+
+    @Override
+    public Usuario read(int id) {
+        for (Usuario cliente : listaUsuario) {
+           if (cliente.getId() == id) {
+                return cliente;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public void update(Usuario usuario) {
+         for (int i = 0; i < listaUsuario.size(); i++) {
+            Usuario u = listaUsuario.get(i);
+            if (u.getId() == usuario.getId()) {
+                listaUsuario.set(i, usuario);
+                break;
+            }
+        }
+    
+    }
+
+    @Override
+    public void delete(Usuario Usuario) {
+       Iterator<Usuario> it = listaUsuario.iterator();
+        while (it.hasNext()) {
+            Usuario u = it.next();
+            if (u.getId() == Usuario.getId()) {
+                it.remove();
+                break;
+            }
+        }
+    }
+
+    @Override
+    public List<Usuario> findAll() {
+        return listaUsuario;
+    }
+    
+}
