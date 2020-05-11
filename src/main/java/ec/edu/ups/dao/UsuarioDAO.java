@@ -30,11 +30,12 @@ public class UsuarioDAO implements IUsuarioDAO {
     }
 
     @Override
-    public Usuario read(int id) {
-        for (Usuario cliente : listaUsuario) {
-           if (cliente.getId() == id) {
-                return cliente;
-            }
+    public Usuario read(String cedula) {
+        for (Usuario usuario : listaUsuario) {
+            if (usuario.getCedula().equals(cedula))
+            {
+                return usuario;
+            } 
         }
         return null;
     }
@@ -43,7 +44,7 @@ public class UsuarioDAO implements IUsuarioDAO {
     public void update(Usuario usuario) {
          for (int i = 0; i < listaUsuario.size(); i++) {
             Usuario u = listaUsuario.get(i);
-            if (u.getId() == usuario.getId()) {
+            if (u.getCedula().equals(usuario.getCedula())) {
                 listaUsuario.set(i, usuario);
                 break;
             }
@@ -56,7 +57,7 @@ public class UsuarioDAO implements IUsuarioDAO {
        Iterator<Usuario> it = listaUsuario.iterator();
         while (it.hasNext()) {
             Usuario u = it.next();
-            if (u.getId() == Usuario.getId()) {
+            if (u.getCedula().equals(Usuario.getCedula())) {
                 it.remove();
                 break;
             }
