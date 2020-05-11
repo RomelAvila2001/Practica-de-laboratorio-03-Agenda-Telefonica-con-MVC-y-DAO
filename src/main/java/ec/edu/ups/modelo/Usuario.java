@@ -24,9 +24,15 @@ public class Usuario {
         telefonos=new Telefono[10];
         cont=0;
     }
-    
-    
 
+    public Usuario(String cedula, String nombre, String apellido, String correo, String contraseña) {
+       this.cedula = cedula;
+       this.nombre = nombre;
+       this.apellido = apellido;
+       this.correo = correo;
+       this.contraseña = contraseña;
+    }
+    
     public String getCedula() {
         return cedula;
     }
