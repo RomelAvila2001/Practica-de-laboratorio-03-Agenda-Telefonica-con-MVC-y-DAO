@@ -19,8 +19,7 @@ public class VistaUsuario {
         teclado=new Scanner (System.in);
     }
     
-    public Usuario registrase(){
-        teclado= new Scanner (System.in);
+    public Usuario ingresarUsuario(){
         System.out.println("Ingrese cedula");
         String cedula= teclado.next();
         System.out.println("Ingrese nombre");
