@@ -18,15 +18,15 @@ public class ControladorUsuario {
     private VistaUsuario vistaUsuario;
     private Usuario usuario;
     private IUsuarioDAO usuarioDAO;
-
+    
     public ControladorUsuario(VistaUsuario vistaUsuario) {
-        this.vistaUsuario = vistaUsuario;
-        this.usuarioDAO = new UsuarioDAO();
+       this.vistaUsuario = vistaUsuario;
+       this.usuarioDAO = new UsuarioDAO();
     }
     
     public void registrar()
     {
-        usuario= vistaUsuario.registrase();
+        usuario= vistaUsuario.ingresarUsuario();
         usuarioDAO.create(usuario);
     }
     
