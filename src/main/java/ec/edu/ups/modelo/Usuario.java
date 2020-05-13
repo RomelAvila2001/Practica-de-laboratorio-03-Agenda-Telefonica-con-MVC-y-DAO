@@ -79,14 +79,14 @@ public class Usuario {
         telefonos.add(telefono);
     }
 
-    public void actualizarDireccion(Telefono telefono) {
+    public void actualizarTelefono(Telefono telefono) {
         if (telefonos.contains(telefono)) {
             int index = telefonos.indexOf(telefono);
             telefonos.set(index, telefono);
         }
     }
 
-    public void eliminarDireccion(Telefono telefono) {
+    public void eliminarTelefono(Telefono telefono) {
         if (telefonos.contains(telefono)) {
             int index = telefonos.indexOf(telefono);
             telefonos.remove(index);
