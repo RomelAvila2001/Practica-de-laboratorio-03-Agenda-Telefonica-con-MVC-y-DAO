@@ -43,6 +43,8 @@ public class Principal {
                     while(salir== false)
                     {
                         System.out.println("---Iniciar Secion---");
+                        
+                        
                         System.out.println("--menu--");
                         System.out.println(" 1. Registrar ");
                         System.out.println(" 2. Modificar ");
@@ -56,6 +58,8 @@ public class Principal {
                         switch(respuesta2)
                         {
                             case 1:
+                                System.out.println("---Registrar telefono---");
+                                
                                 break;
                         }
                     }
