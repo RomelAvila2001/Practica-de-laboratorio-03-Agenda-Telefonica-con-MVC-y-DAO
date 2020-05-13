@@ -18,9 +18,7 @@ public class Telefono {
     public Telefono() {
     }
     
-    
-
-    public Telefono(int codigo, String numero, String tipo, String operadora) {
+    public Telefono(String numero, String tipo, String operadora, int codigo) {
         this.codigo = codigo;
         this.numero = numero;
         this.tipo = tipo;
