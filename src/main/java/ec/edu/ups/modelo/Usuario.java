@@ -98,23 +98,11 @@ public class Usuario {
         return true;
     }
     
-    public void agregarTelefono(Telefono telefono)
-    {
-        if(cont<=10)
-        {
-            telefonos[cont]=telefono;
-            cont++;
-        }
-        else{System.out.println("has llegado al limite de clientes");}
-    } 
 
     
     @Override
     public String toString() {
-        String telefonos=" ";
-        for (int i = 0; i < cont; i++) {
-            telefonos+=this.telefonos[i]+"\n";
-        }
+        
         return "Usuario{" + "cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", correo=" + correo + ", contrase\u00f1a=" + contraseña + '}';
     }
     
