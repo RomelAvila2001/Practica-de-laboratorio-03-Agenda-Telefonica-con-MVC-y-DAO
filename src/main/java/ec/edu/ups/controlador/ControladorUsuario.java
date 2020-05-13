@@ -9,6 +9,7 @@ import ec.edu.ups.dao.UsuarioDAO;
 import ec.edu.ups.idao.IUsuarioDAO;
 import ec.edu.ups.modelo.Usuario;
 import ec.edu.ups.vista.VistaUsuario;
+import java.util.List;
 
 /**
  *
@@ -30,5 +31,46 @@ public class ControladorUsuario {
         usuarioDAO.create(usuario);
     }
     
+     public void verCliente() {
+        String cedula = vistaUsuario.buscarUsuario();
+        usuario = usuarioDAO.read(cedula);
+        vistaUsuario.verUsuario(usuario);
+    }
+
+    //llama al DAO para actualizar un cliente
+    public void actualizar() {
+        usuario = vistaUsuario.actualizarUsuario();
+        usuarioDAO.update(usuario);
+    }
+
+    //llama al DAO para eliminar un cliente
+    public void eliminar() {
+        usuario = vistaUsuario.eliminarUsuario();
+        usuarioDAO.delete(usuario);
+    }
+
+    //llama al DAO para obtener todos los clientes y luego los muestra en la vista
+    public void verClientes() {
+        List<Usuario> usuarios;
+        usuarios = usuarioDAO.findAll();
+        vistaUsuario.verUsuarios(usuarios);
+    }
     
+    
+    public void iniciarSesion()
+    {
+        usuario= vistaUsuario.iniciarSesion();
+    }
+    
+    public Usuario verificar()
+    {
+        List<Usuario> usuarios=usuarioDAO.findAll();
+        usuario=vistaUsuario.iniciarSesion();
+        for (Usuario usuario1 : usuarios) {
+            if (usuario1.equals(usuario)) {
+                return usuario1;
+            }
+        }
+        return null;
+    }
 }
