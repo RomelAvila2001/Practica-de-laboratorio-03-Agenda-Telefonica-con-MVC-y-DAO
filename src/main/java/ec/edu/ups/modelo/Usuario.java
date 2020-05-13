@@ -5,6 +5,8 @@
  */
 package ec.edu.ups.modelo;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -17,12 +19,10 @@ public class Usuario {
     private String apellido;
     private String correo;
     private String contraseña;
-    private Telefono[] telefonos;
-    private int cont;
+    private List<Telefono>telefonos;
 
     public Usuario() {
-        telefonos=new Telefono[10];
-        cont=0;
+        telefonos= new ArrayList<>();
     }
 
     public Usuario(String cedula, String nombre, String apellido, String correo, String contraseña) {
@@ -31,6 +31,7 @@ public class Usuario {
        this.apellido = apellido;
        this.correo = correo;
        this.contraseña = contraseña;
+       telefonos=new ArrayList<>();
     }
     
     public String getCedula() {
@@ -72,6 +73,36 @@ public class Usuario {
     public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
     }
+    
+    //métodos de la agregación
+    public void agregarTelefono(Telefono telefono) {
+        telefonos.add(telefono);
+    }
+
+    public void actualizarDireccion(Telefono telefono) {
+        if (telefonos.contains(telefono)) {
+            int index = telefonos.indexOf(telefono);
+            telefonos.set(index, telefono);
+        }
+    }
+
+    public void eliminarDireccion(Telefono telefono) {
+        if (telefonos.contains(telefono)) {
+            int index = telefonos.indexOf(telefono);
+            telefonos.remove(index);
+        }
+    }
+
+    public List<Telefono> listar() {
+        return telefonos;
+    }
+
+    public Telefono buscar(int codigo) {
+
+        return telefonos.get(codigo);
+
+    }
+
 
     @Override
     public int hashCode() {
@@ -103,7 +134,7 @@ public class Usuario {
     @Override
     public String toString() {
         
-        return "Usuario{" + "cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", correo=" + correo + ", contrase\u00f1a=" + contraseña + '}';
+        return "Usuario{" + "cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", correo=" + correo + ", contrase\u00f1a=" + contraseña + '}'+ "\nTelefonos: " + telefonos.toString();
     }
     
     
