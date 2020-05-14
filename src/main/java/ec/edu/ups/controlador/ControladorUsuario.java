@@ -40,12 +40,12 @@ public class ControladorUsuario {
         usuarioDAO.create(usuario);
     }
     
-     public void verUsuario() {
+    public void verUsuario() {
         String cedula = vistaUsuario.buscarUsuario();
         usuario = usuarioDAO.read(cedula);
         vistaUsuario.verUsuario(usuario);
     }
-
+    
     //llama al DAO para actualizar un cliente
     public void actualizar() {
         usuario = vistaUsuario.actualizarUsuario();
@@ -65,48 +65,56 @@ public class ControladorUsuario {
         vistaUsuario.verUsuarios(usuarios);
     }
     
-    public void agregarTelefono(){
+    
+    public void agregarTelefono(String cedula){
         int codigo = vistaTelefono.buscarTelefono();
         telefono = telefonoDAO.read(codigo);
+        usuario=usuarioDAO.read(cedula);
         usuario.agregarTelefono(telefono);
         usuarioDAO.update(usuario);        
     }
     
-    public void actualizarTelefono(){
+    public void actualizarTelefono(String cedula){
         int codigo = vistaTelefono.buscarTelefono();
         telefono= telefonoDAO.read(codigo);
+        usuario= usuarioDAO.read(cedula);
         usuario.actualizarTelefono(telefono);
         usuarioDAO.update(usuario);
     }
     
-    public void eleiminarTelefono(){
+    public void eleiminarTelefono(String cedula){
         int codigo=vistaTelefono.buscarTelefono();
         telefono=telefonoDAO.read(codigo);
+        usuario=usuarioDAO.read(cedula);
         usuario.eliminarTelefono(telefono);
         usuarioDAO.update(usuario);
     }
     
-    public void buscarTelefono(){
+    public void buscarTelefono(String cedula){
         int codigo=vistaTelefono.buscarTelefono();
         telefono=telefonoDAO.read(codigo);
+        usuario=usuarioDAO.read(cedula);
         usuario.buscar(codigo);
         usuarioDAO.update(usuario);
     }
-    
-    public void iniciarSesion()
-    {
-        usuario= vistaUsuario.iniciarSesion();
-    }
-    
-    public Usuario verificar()
-    {
-        List<Usuario> usuarios=usuarioDAO.findAll();
-        usuario=vistaUsuario.iniciarSesion();
+      
+    public Usuario verificar() {
+
+        usuario = vistaUsuario.iniciarSesion();
+
+        List<Usuario> usuarios = usuarioDAO.findAll();
+
         for (Usuario usuario1 : usuarios) {
-            if (usuario1.equals(usuario)) {
+
+            if (usuario.equals(usuario1)) {
+
                 return usuario1;
+
             }
+
         }
+
         return null;
+
     }
 }
