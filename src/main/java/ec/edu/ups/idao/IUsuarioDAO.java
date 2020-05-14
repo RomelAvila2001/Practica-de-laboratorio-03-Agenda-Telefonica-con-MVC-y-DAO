@@ -6,7 +6,8 @@
 package ec.edu.ups.idao;
 
 import ec.edu.ups.modelo.Usuario;
-import java.util.List;
+import java.util.Collection;
+
 
 /**
  *
@@ -17,6 +18,6 @@ public interface IUsuarioDAO {
     public Usuario read(String cedula);
     public void update(Usuario usuario);
     public void delete(Usuario Usuario);
-    public List<Usuario> findAll();
+    public Collection<Usuario> findAll();
     
 }
