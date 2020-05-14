@@ -13,7 +13,7 @@ import ec.edu.ups.modelo.Telefono;
 import ec.edu.ups.modelo.Usuario;
 import ec.edu.ups.vista.VistaTelefono;
 import ec.edu.ups.vista.VistaUsuario;
-import java.util.List;
+import java.util.Collection;
 
 /**
  *
@@ -60,14 +60,14 @@ public class ControladorUsuario {
 
     //llama al DAO para obtener todos los clientes y luego los muestra en la vista
     public void verUsuarios() {
-        List<Usuario> usuarios;
+        Collection<Usuario> usuarios;
         usuarios = usuarioDAO.findAll();
         vistaUsuario.verUsuarios(usuarios);
     }
     
     
     public void agregarTelefono(String cedula){
-        int codigo = vistaTelefono.buscarTelefono();
+        String codigo = vistaTelefono.buscarTelefono();
         telefono = telefonoDAO.read(codigo);
         usuario=usuarioDAO.read(cedula);
         usuario.agregarTelefono(telefono);
@@ -75,7 +75,7 @@ public class ControladorUsuario {
     }
     
     public void actualizarTelefono(String cedula){
-        int codigo = vistaTelefono.buscarTelefono();
+        String codigo = vistaTelefono.buscarTelefono();
         telefono= telefonoDAO.read(codigo);
         usuario= usuarioDAO.read(cedula);
         usuario.actualizarTelefono(telefono);
@@ -83,7 +83,7 @@ public class ControladorUsuario {
     }
     
     public void eleiminarTelefono(String cedula){
-        int codigo=vistaTelefono.buscarTelefono();
+        String codigo=vistaTelefono.buscarTelefono();
         telefono=telefonoDAO.read(codigo);
         usuario=usuarioDAO.read(cedula);
         usuario.eliminarTelefono(telefono);
@@ -91,30 +91,20 @@ public class ControladorUsuario {
     }
     
     public void buscarTelefono(String cedula){
-        int codigo=vistaTelefono.buscarTelefono();
+        String codigo=vistaTelefono.buscarTelefono();
         telefono=telefonoDAO.read(codigo);
         usuario=usuarioDAO.read(cedula);
-        usuario.buscar(codigo);
         usuarioDAO.update(usuario);
     }
       
     public Usuario verificar() {
-
         usuario = vistaUsuario.iniciarSesion();
-
-        List<Usuario> usuarios = usuarioDAO.findAll();
-
+        Collection<Usuario> usuarios = usuarioDAO.findAll();
         for (Usuario usuario1 : usuarios) {
-
             if (usuario.equals(usuario1)) {
-
                 return usuario1;
-
             }
-
         }
-
         return null;
-
     }
 }
