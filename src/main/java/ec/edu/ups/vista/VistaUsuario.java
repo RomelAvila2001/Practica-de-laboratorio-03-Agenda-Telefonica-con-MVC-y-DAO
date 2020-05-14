@@ -35,18 +35,7 @@ public class VistaUsuario {
         
         return new Usuario(cedula,nombre,apellido,correo,contraseña);
     }
-    public Usuario iniciarSesion()
-    {
-        System.out.println("Ingrese Correo");
-        String correo=teclado.next();
-        System.out.println("Ingrese contraseña");
-        String contraseña= teclado.next();
-        
-        return new Usuario(null, null, null, correo, contraseña);
-    }
-    
-    
-    
+   
     public Usuario actualizarUsuario() {
         System.out.println("Ingresa la cedula del cliente a actualizar");
         String cedula=teclado.next();
@@ -74,9 +63,6 @@ public class VistaUsuario {
         return cedula;
     }
     
-    
-    
-
     public void verUsuario(Usuario usuario) {
         System.out.println("Datos del Cliente: " + usuario);
     }
@@ -85,6 +71,16 @@ public class VistaUsuario {
         for (Usuario usuario : usuarios) {
             System.out.println("Datos del Cliente: " + usuario);
         }
+    }
+    
+    public Usuario iniciarSesion()
+    {
+        System.out.println("Ingrese Correo");
+        String correo=teclado.next();
+        System.out.println("Ingrese contraseña");
+        String contraseña= teclado.next();
+        
+        return new Usuario(null, null, null, correo, contraseña);
     }
     
 }
