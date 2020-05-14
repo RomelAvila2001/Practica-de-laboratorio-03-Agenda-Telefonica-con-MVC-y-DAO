@@ -24,7 +24,7 @@ public class VistaTelefono {
         teclado = new Scanner(System.in);
         System.out.println("Ingresa los datos del telefono");
         System.out.println("Ingrese el codigo");
-        int codigo = teclado.nextInt();
+        String codigo = teclado.next();
         System.out.println("Ingrese numero de telefono");
         String numero= teclado.next();
         System.out.println("Ingrese tipo de telefono");
@@ -37,7 +37,7 @@ public class VistaTelefono {
     public Telefono actualizarTelefono() {
         teclado = new Scanner(System.in);
         System.out.println("Ingresa el codigo del telefono a actualizar");
-        int codigo = teclado.nextInt();
+        String codigo = teclado.next();
         System.out.println("Ingrese los nuevos Datos");
         System.out.println("Ingrese numero de telefono");
         String numero= teclado.next();
@@ -51,7 +51,7 @@ public class VistaTelefono {
     public Telefono eliminarTelefono() {
         teclado = new Scanner(System.in);
         System.out.println("Ingresa el codigo del telefono a eliminar");
-        int codigo = teclado.nextInt();
+        String codigo = teclado.next();
         return new Telefono(null, null, null, codigo);
     }
 
