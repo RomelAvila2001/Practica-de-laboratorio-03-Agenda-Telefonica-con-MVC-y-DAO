@@ -7,9 +7,9 @@ package ec.edu.ups.dao;
 
 import ec.edu.ups.idao.IUsuarioDAO;
 import ec.edu.ups.modelo.Usuario;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -17,56 +17,39 @@ import java.util.List;
  */
 public class UsuarioDAO implements IUsuarioDAO {
     
-    private List<Usuario> listaUsuario;
+    
+    private Map<String, Usuario> listaUsuarios;
 
     public UsuarioDAO() {
-        listaUsuario = new ArrayList<>();
+        listaUsuarios = new HashMap<String, Usuario>();
     }
-    
     
     @Override
     public void create(Usuario usuario) {
-       listaUsuario.add(usuario);
+       listaUsuarios.put(usuario.getCedula(), usuario);
     }
 
     @Override
     public Usuario read(String cedula) {
-        for (Usuario usuario : listaUsuario) {
-            if (usuario.getCedula().equals(cedula))
-            {
-                return usuario;
-            } 
-        }
-        return null;
+        return listaUsuarios.get(cedula);
     }
-
+    
     @Override
     public void update(Usuario usuario) {
-         for (int i = 0; i < listaUsuario.size(); i++) {
-            Usuario u = listaUsuario.get(i);
-            if (u.getCedula().equals(usuario.getCedula())) {
-                listaUsuario.set(i, usuario);
-                break;
-            }
-        }
+        listaUsuarios.put(usuario.getCedula(), usuario);
+    }
+
+    @Override
+    public void delete(Usuario usuario) {
+        listaUsuarios.remove(usuario.getCedula());
+    }
+
+    @Override
+    public List <Usuario> findAll() {
+        List<Usuario> usuarios = (List<Usuario>) this.listaUsuarios.values();
+        return usuarios;
+    }
+
     
-    }
-
-    @Override
-    public void delete(Usuario Usuario) {
-       Iterator<Usuario> it = listaUsuario.iterator();
-        while (it.hasNext()) {
-            Usuario u = it.next();
-            if (u.getCedula().equals(Usuario.getCedula())) {
-                it.remove();
-                break;
-            }
-        }
-    }
-
-    @Override
-    public List<Usuario> findAll() {
-        return listaUsuario;
-    }
     
 }
