@@ -9,7 +9,7 @@ import ec.edu.ups.dao.TelefonoDAO;
 import ec.edu.ups.idao.ITelefonoDAO;
 import ec.edu.ups.modelo.Telefono;
 import ec.edu.ups.vista.VistaTelefono;
-import java.util.List;
+import java.util.Collection;
 
 /**
  *
@@ -37,7 +37,7 @@ public class ControladorTelefono {
 
     //llama al DAO para obtener un cliente por el id y luego los muestra en la vista
     public void verTelefono() {
-        int codigo = vistaTelefono.buscarTelefono();
+        String codigo = vistaTelefono.buscarTelefono();
         telefono = telefonoDAO.read(codigo);
         vistaTelefono.verTelefono(telefono);
     }
@@ -56,7 +56,7 @@ public class ControladorTelefono {
 
     //llama al DAO para obtener todos los clientes y luego los muestra en la vista
     public void verTelefonos() {
-        List<Telefono> telefonos;
+        Collection<Telefono> telefonos;
         telefonos = telefonoDAO.findAll();
         vistaTelefono.verTelefonos(telefonos);
     }
