@@ -7,8 +7,8 @@ package ec.edu.ups.dao;
 
 import ec.edu.ups.idao.IUsuarioDAO;
 import ec.edu.ups.modelo.Usuario;
+import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -45,9 +45,10 @@ public class UsuarioDAO implements IUsuarioDAO {
     }
 
     @Override
-    public List <Usuario> findAll() {
-        List<Usuario> usuarios = (List<Usuario>) this.listaUsuarios.values();
+    public Collection <Usuario> findAll() {
+        Collection<Usuario> usuarios = this.listaUsuarios.values();
         return usuarios;
+        
     }
 
     
