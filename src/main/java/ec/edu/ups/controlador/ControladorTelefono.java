@@ -26,6 +26,8 @@ public class ControladorTelefono {
         this.vistaTelefono = vistaTelefono;
         this.telefonoDAO = telefonoDAO;
     }
+    
+    
 
     //llama al DAO para guardar un cliente
     public void registrar() {
