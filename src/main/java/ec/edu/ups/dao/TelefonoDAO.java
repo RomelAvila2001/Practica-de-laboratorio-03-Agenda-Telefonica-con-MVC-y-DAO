@@ -7,8 +7,8 @@ package ec.edu.ups.dao;
 
 import ec.edu.ups.idao.ITelefonoDAO;
 import ec.edu.ups.modelo.Telefono;
+import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -29,7 +29,7 @@ public class TelefonoDAO implements ITelefonoDAO {
     }
     
     @Override
-    public Telefono read(int codigo) {
+    public Telefono read(String codigo) {
         return listaTelefonos.get(codigo);
     }
    
@@ -45,8 +45,8 @@ public class TelefonoDAO implements ITelefonoDAO {
     }
 
     @Override
-    public List <Telefono> findAll() {
-        List <Telefono> telefonos = (List <Telefono>) this.listaTelefonos.values();
+    public Collection <Telefono> findAll() {
+        Collection<Telefono> telefonos =this.listaTelefonos.values();
         return telefonos;
     }
 
