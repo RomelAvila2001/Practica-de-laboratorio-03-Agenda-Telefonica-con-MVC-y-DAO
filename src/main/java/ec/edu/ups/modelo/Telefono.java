@@ -5,12 +5,14 @@
  */
 package ec.edu.ups.modelo;
 
+import java.util.Objects;
+
 /**
  *
  * @author NANCY
  */
 public class Telefono {
-    private int codigo;
+    private String codigo;
     private String numero;
     private String tipo;
     private String operadora;
@@ -18,7 +20,7 @@ public class Telefono {
     public Telefono() {
     }
     
-    public Telefono(String numero, String tipo, String operadora, int codigo) {
+    public Telefono(String numero, String tipo, String operadora, String codigo) {
         this.codigo = codigo;
         this.numero = numero;
         this.tipo = tipo;
@@ -27,11 +29,11 @@ public class Telefono {
     
     
 
-    public int getCodigo() {
+    public String getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(int codigo) {
+    public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
 
@@ -62,7 +64,7 @@ public class Telefono {
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 53 * hash + this.codigo;
+        hash = 97 * hash + Objects.hashCode(this.codigo);
         return hash;
     }
 
@@ -78,11 +80,13 @@ public class Telefono {
             return false;
         }
         final Telefono other = (Telefono) obj;
-        if (this.codigo != other.codigo) {
+        if (!Objects.equals(this.codigo, other.codigo)) {
             return false;
         }
         return true;
     }
+
+    
 
     @Override
     public String toString() {
