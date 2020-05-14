@@ -73,6 +73,9 @@ public class VistaUsuario {
         String cedula=teclado.next();
         return cedula;
     }
+    
+    
+    
 
     public void verUsuario(Usuario usuario) {
         System.out.println("Datos del Cliente: " + usuario);
