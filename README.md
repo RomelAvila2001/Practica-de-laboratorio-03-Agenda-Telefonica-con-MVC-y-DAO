@@ -64,3 +64,7 @@ https://github.com/RomelAvila2001/Practica-de-laboratorio-03-Agenda-Telefonica-c
 ## 3. Realizar varios commits en la herramienta GitHub que demuestren el desarrollo de la aplicación desde principio a fin.
 - En el siguiente link se encuentran todos los commits subidos a la aplicación github desde el inicio del programa hasta su fin.
 - https://github.com/RomelAvila2001/Practica-de-laboratorio-03-Agenda-Telefonica-con-MVC-y-DAO/commits/master
+
+# Resultados
+![1](https://user-images.githubusercontent.com/64879338/82017326-861bc500-9648-11ea-9b4a-c902b7bc0b63.png)
+![2](https://user-images.githubusercontent.com/64879338/82017732-6d5fdf00-9649-11ea-987d-d748c5d5faaf.png)
