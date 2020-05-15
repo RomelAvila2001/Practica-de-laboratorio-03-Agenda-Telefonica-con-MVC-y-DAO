@@ -19,7 +19,6 @@ import java.util.Scanner;
  * @author NANCY
  */
 public class Principal {
-
     private static final Scanner teclado = new Scanner(System.in);
     private static final VistaUsuario vista = new VistaUsuario();
     private static final VistaTelefono vistaT = new VistaTelefono();
@@ -28,16 +27,17 @@ public class Principal {
     private static final ControladorUsuario controladorUsuario = new ControladorUsuario(vista, vistaT, usuarioDAO, telefonoDAO);
     private static final ControladorTelefono controladorTelefono = new ControladorTelefono(vistaT, telefonoDAO);
 
+   
     public static void main(String[] args) {
-
         boolean Salir = false;
 
         while (Salir == false) {
             System.out.println("-----Menu de seleccio-----");
             System.out.println("1. Registrarse ");
             System.out.println("2. Iniciar Sesion ");
-            System.out.println("3. Imprimir usuarios");
-            System.out.println("4. Salir ");
+            System.out.println("3. Imprimir lista de telefonos");
+            System.out.println("4. Imprimir usuarios");
+            System.out.println("5. Salir ");
 
             int respuesta = teclado.nextInt();
 
@@ -84,29 +84,38 @@ public class Principal {
                                 controladorUsuario.eleiminarTelefono(cedula);
                                 break;
                             case 4:
+                                System.out.println("---Buscar telefono---");
                                 controladorUsuario.buscarTelefono(cedula);
                                 break;
                             case 5:
-                                controladorTelefono.verTelefonos();
+                                System.out.println("---Lista de telefonos del usuario---");
+                                controladorUsuario.listaTelefonos(cedula);
                                 break;
                             case 6:
+                                System.out.println("---Salir---");
                                 salir = true;
                                 break;
                         }
                     }
 
                     break;
-
                 case 3:
-                    controladorUsuario.verUsuarios();
+                    System.out.println("---Lista de telefonos---");
+                    controladorTelefono.verTelefonos();
                     break;
                 case 4:
+                    System.out.println("---Lista de Usuarios---");
+                    controladorUsuario.verUsuarios();
+                    break;
+                case 5:
+                    System.out.println("---Fin del programa---");
                     Salir = true;
                     break;
             }
         }
     }
 
+    
     public static String verificarSesion() {
         Usuario usuario1 = controladorUsuario.verificar();
         if (usuario1 == null) {
