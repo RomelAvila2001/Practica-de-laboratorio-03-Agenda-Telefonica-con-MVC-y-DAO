@@ -67,4 +67,13 @@ https://github.com/RomelAvila2001/Practica-de-laboratorio-03-Agenda-Telefonica-c
 
 # Resultados
 ![1](https://user-images.githubusercontent.com/64879338/82017326-861bc500-9648-11ea-9b4a-c902b7bc0b63.png)
+
 ![2](https://user-images.githubusercontent.com/64879338/82017732-6d5fdf00-9649-11ea-987d-d748c5d5faaf.png)
+
+![3](https://user-images.githubusercontent.com/64879338/82017836-a39d5e80-9649-11ea-817d-141352bc9252.png)
+
+![4](https://user-images.githubusercontent.com/64879338/82017878-c0399680-9649-11ea-852b-95198e7f9f7c.jpg)
+
+![5](https://user-images.githubusercontent.com/64879338/82017973-e6f7cd00-9649-11ea-8c22-add53dc51f98.jpg)
+
+![6](https://user-images.githubusercontent.com/64879338/82018060-173f6b80-964a-11ea-9b32-85e18d7fc1dc.jpg)
