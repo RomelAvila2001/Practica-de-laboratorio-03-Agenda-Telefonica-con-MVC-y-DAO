@@ -93,8 +93,14 @@ public class ControladorUsuario {
     public void buscarTelefono(String cedula){
         String codigo=vistaTelefono.buscarTelefono();
         telefono=telefonoDAO.read(codigo);
+        vistaTelefono.verTelefono(telefono);
         usuario=usuarioDAO.read(cedula);
         usuarioDAO.update(usuario);
+    }
+    
+    public void listaTelefonos(String cedula){
+        usuario=usuarioDAO.read(cedula);
+        System.out.println(usuario.listar());
     }
       
     public Usuario verificar() {
